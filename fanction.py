@@ -22,3 +22,13 @@ message = get_greeting()
 # print(get_greeting()) correct
 print(message)
 # If a function doesn't have a return statement, it returns None by default.
+
+# The pass statement
+# function definition can't be empty. if you need to create a function
+# placeholder without any code, use the pass statement
+# If a function doesn't have a return statement, it returns None by default.
+for z in [0,1,2]:
+    pass
+
+def myfunc():
+    pass
