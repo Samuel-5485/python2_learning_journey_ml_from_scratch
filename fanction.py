@@ -92,3 +92,21 @@ def greet(name, age):
     return f"Hello, {name}! Are you {age} years old?"
 print(greet(age=20, name="Alice")) #order doesn't matter
 # print(greet(20, "Alice")) #But if we code like this b/c order matter
+
+#Positional Arguments: In this order matter when you call...
+def my_func(animal, name):
+    print("I have a", animal)
+    print("My", animal)
+my_func("buddy", "dog") #order matter
+
+#mixing positional and keyword arguments
+def my_func(animal, name, age):
+    print("I've a", age, "year old", animal, "named", name)
+my_func("dog", name = "Buddy", age = 6) #mixing positional and keyword arguments 
+
+# Passing different data types
+def my_function(fruits):
+    for fruit in fruits:
+        print(fruit)
+my_function(["apple", "banana", "cherry"]) #passing a list as an argument
+
