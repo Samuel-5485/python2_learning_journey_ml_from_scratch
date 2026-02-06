@@ -85,3 +85,10 @@ def greet(name="Guest"):
     return f"Hello, {name}!"
 print(greet()) #use default value
 print(greet("Alice")) #override default value
+
+# Keyword Arguments:In this order doesn't matter when you call... 
+# you can send aarguments with the key = value syntax. this way the order of the arguments doesn't matter
+def greet(name, age):
+    return f"Hello, {name}! Are you {age} years old?"
+print(greet(age=20, name="Alice")) #order doesn't matter
+# print(greet(20, "Alice")) #But if we code like this b/c order matter
