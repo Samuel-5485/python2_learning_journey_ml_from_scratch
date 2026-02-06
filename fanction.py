@@ -110,3 +110,52 @@ def my_function(fruits):
         print(fruit)
 my_function(["apple", "banana", "cherry"]) #passing a list as an argument
 
+# Sending a dictionary as an argument
+def my_function(person):
+    print("Name:", person["name"])
+    print("Age:", person["age"])
+my_function({"name": "Alice", "age": 20}) #passing a dictionary as an argument
+
+# return values
+def my_function(x, y):
+    return x + y
+result = my_function(7, 4)
+print(result)
+
+# Returning different data types
+def my_function():
+    return [1, 2, 3, 4, 5]
+num = my_function()
+print(num)
+print(num[0])
+print(num[1])
+print(num[2])
+print(num[-1])
+
+# positional only arguments
+# you can specify that a function can have only positional arg
+#to specify a positional-only argument, add, / after the arguments
+def my_function(name, /):
+    print("Hello", name)
+# my_function(name = "Alice") # TypeError: my_function() got some positional-only arguments but keyword was given
+my_function("Alice") #correct
+
+# Keyword-only arguments
+# To specify that can have only keyword argument, add * , before arguments
+def my_func(*, name):
+    print("Hello", name)
+# my_func("Bro") # TypeError: my_func() take 0 positional arguments bu 1 was given
+my_func(name = "Bro") #correct
+# What is d/t between positional-only and keyword-only arguments?
+# Positional-only arguments must be passed in the correct order and cannot be specifyed using their names when calling the function,
+# While 
+
+# Combining positional-only and keyword-only
+# you can combine both arg types in the same function
+# Arguments before / are positional -only, and arguments after * are keyword-only
+def my_calc(a, b, /, *, c, d):
+    return a + b + c + d
+result = my_calc(3, 4, c = 2, d = 9)
+print(result)
+
+
