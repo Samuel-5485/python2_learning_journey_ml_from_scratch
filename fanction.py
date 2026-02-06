@@ -148,7 +148,7 @@ def my_func(*, name):
 my_func(name = "Bro") #correct
 # What is d/t between positional-only and keyword-only arguments?
 # Positional-only arguments must be passed in the correct order and cannot be specifyed using their names when calling the function,
-# While 
+# while keyword-only arguments must be specifyed using their names when calling the function and cannot be passed positionally
 
 # Combining positional-only and keyword-only
 # you can combine both arg types in the same function
@@ -158,4 +158,44 @@ def my_calc(a, b, /, *, c, d):
 result = my_calc(3, 4, c = 2, d = 9)
 print(result)
 
+# Python *args and **kwargs
+# *args allows you to pass a variable number of non-keyword arguments to a function,
+# while **kwargs allows you to pass a variable number of keyword arguments to a function.
+def my_func(*args):
+    for arg in args:
+        print(arg)
+my_func(1, 4, 5) #passing a variable number of non-keyword arguments
+# Using *args to accept any number of positional arguments:
+def my_func(*kids):
+    print("The youngest child is " + kids[0])
+    print("All arguments: ", kids)
+    print("Type: ", type(kids))
+# lists = my_func["Emil", "Tobias", "Linus"] TypeError: 'function' object is not subscriptable
+my_func("Emil", "Tobias", "Linus")
 
+# Using *args with a regular argument:
+def my_func(greeting, *names):
+    for name in names:
+        print(greeting, name)
+my_func("Hello", "Alice", "Bob")
+
+# A function thata calculates the sum of any number of values:
+def sum_all(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+print(sum_all(4, 9, -3))
+print(sum_all(3, 8, 2))
+print(sum_all(3))
+
+# finding the maximum value 
+def max_value(*numbers):
+    if len(numbers) == 0:
+        return None
+    max_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+print(max_value(7, 8, 2))
