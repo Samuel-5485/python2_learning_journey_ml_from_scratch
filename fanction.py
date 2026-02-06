@@ -32,3 +32,24 @@ for z in [0,1,2]:
 
 def myfunc():
     pass
+# keep in mind:  when you code pass as a default think like of this 
+# you forget to calculate 5*6+4-3 but at the time you remember,
+#  how to solve it you will come back and solve
+for i in range(1, 12):
+    print(i)
+
+# Python function arguments
+# A function can have arguments, which are values you can pass to the function when you call it.
+     #A function with one argument
+def greet(name):
+    return f"Hello, {name}!"
+print(greet("Alice"))
+  #or
+def greet(fname):
+    print(fname + " Ahmed")
+greet("Ali")
+
+# A function with multiple arguments
+def add(a, b):
+    return a + b
+print(add(4, 8))
