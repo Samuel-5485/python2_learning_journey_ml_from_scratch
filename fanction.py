@@ -53,3 +53,35 @@ greet("Ali")
 def add(a, b):
     return a + b
 print(add(4, 8))
+
+def my_function(fname, lname):
+    return fname + " " + lname
+    # return f"{fname} {lname}"
+    # print(fname + " " + lname)
+name = my_function("John", "Doe")
+print(name)
+
+# Parameter vs Argument
+# A parameter is a variable in the function definition that represents a value that will be passed to the function when it is called.
+# An argument is the actual value that is passed to the function when it is called.
+def my_function(para1, para2):
+    return para1 + para2
+result = my_function(5, 9) # 5 and 9 are arguments
+print(result)
+
+# try to call a function with missing arguments
+def multiply(x, y):
+        return x * y
+try:
+    print(multiply(5))
+except TypeError:
+    print("TypeError: multiply() missing 1 required positional argument")
+
+print(multiply(5, 8))
+ # TypeError: multiply() missing 1 required positional argument:
+
+# Default Parameter Values
+def greet(name="Guest"):
+    return f"Hello, {name}!"
+print(greet()) #use default value
+print(greet("Alice")) #override default value
