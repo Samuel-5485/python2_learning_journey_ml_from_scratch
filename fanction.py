@@ -199,3 +199,44 @@ def max_value(*numbers):
             max_num = num
     return max_num
 print(max_value(7, 8, 2))
+
+# Arbitrary keyword Arguments with **kwargs
+# if you don't know how many keyword arguments will be passed to your function, 
+# add two asterisks ** before the parameter name in the function definition
+# why we use **kwargs? because it allows us to handle a variable number of
+#  keyword arguments, which can be useful when we want to create flexible
+#  function that can accept different types of input without having to define a fixed number of parameters
+
+def my_func(**kwargs):
+    print("Type", type(kwargs))
+    print("Name: ", kwargs["name"])
+    print("Age: ", kwargs["age"])
+    print("All data: ", kwargs)
+my_func(name = "Alice", age = 21, city = "New York", country = "USA",)
+
+# Combining *args and **kwargs
+# what is d/t between *args and **kwargs?
+# *args is used to pass a variable number of non-keyword arguments to a function, while
+# 
+def my_func(title, *args, **kwargs):
+    print("Title: ", title)
+    print("Positional arguments: ", args)
+    print("Keyword arguments: ", kwargs)
+my_func("My function", name = "Alice", age = 20, city = "New York")
+
+def student_info(student_id, *courses, **details):
+    print("Student ID: ", student_id)
+    print("Courses: ", courses)
+    print("Details: ", details)
+student_info(101, "Math", "Cs", "IT", name = "Bob", age = 20, city = "AA")
+# OR 
+"""student_info(
+    102,
+    "Math",
+    "Cs",
+    "IT", 
+    name = "Bob",
+    age = 20,
+    city = "AA"
+)
+"""
