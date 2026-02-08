@@ -216,7 +216,8 @@ my_func(name = "Alice", age = 21, city = "New York", country = "USA",)
 
 # Combining *args and **kwargs
 # what is d/t between *args and **kwargs?
-# *args is used to pass a variable number of non-keyword arguments to a function, while
+# *args is used to pass a variable number of non-keyword arguments to a function, 
+# while **kwargs is used to pass a variable number of keyword arguments to a function 
 # 
 def my_func(title, *args, **kwargs):
     print("Title: ", title)
@@ -240,3 +241,15 @@ student_info(101, "Math", "Cs", "IT", name = "Bob", age = 20, city = "AA")
     city = "AA"
 )
 """
+# Unpacking Arguments
+# you can also use * and ** to unpack arguments when calling a function
+def my_func(a, b, c):
+    return a + b + c
+numbers = (3, 8, 9) #  a tuple or you can use a list []
+print(my_func(*numbers)) # unpacking a list as arguments
+
+# unpacking a dictionary with **
+def my_func(fname, lname):
+    print("Hello", fname, lname)
+person = {"fname": "John", "lname": "Doe"}
+my_func(**person) # unpacking a dictionary as arguments
