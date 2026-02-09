@@ -270,4 +270,25 @@ def my_func():
 my_func()
 print(y) # accessing global variable outside a function
 
+# global keyword: is used to declare that a variable inside a function is global(it belongs to the global scope).
+# it allow you to modify a global variable inside a function
+def my_func():
+    global y # to modify the global variable
+    y += 5
+my_func()
+print(y) # accessing global variable inside a function
+# 3. Enclosing Scope: A variable defined in an enclosing function is in the enclosing scope and can be accessed by nested function.
+#   nonlocal keyword: is used to work with variables inside functions,
+#  it's belong to the outer function. it allows you to modify the outer function variable
+def outer_func():
+    z = 4 # z is in the enclosing scope
+    def inner_func():
+        nonlocal z # to modify the enclosing variable
+        z += 1
+        print(z) # accessing enclosing variable inside nested function
+    inner_func()
+outer_func()
 
+# 4. Built-in scope: A variable defined in the built-in scope is a built-in function or constant that is always available in python.
+print(len("Hello")) # len is a built-in function
+print(max(3, 8, 2)) # max is a built-in function
