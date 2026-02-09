@@ -405,3 +405,46 @@ def say():
   return "hi"
 
 print(say())
+
+# Python Lambda Functions
+# A lambda function can take any number of arguments, but can only have one expression.
+# syntax: lambda arguments : expression
+# A lambda function that adds two numbers:
+add = lambda x, y: x + y
+print(add(4, 9))
+
+multiply = lambda a, b: a * b
+print(multiply(3, 8))
+
+# Why use lambda functions?
+# why we use lambda functions?
+#  Use lambda functions when an anonymous function is required for a short period of time.
+
+def myfunc(n):
+    return lambda a : a * n
+doubler = myfunc(3)
+tripler = myfunc(6)
+print(doubler(5)) 
+print(tripler(7))
+
+# Lambda with built-in functions
+# are commonly used with built-in functions like map(), filter(), sorted() and reduce()
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)
+
+# Using lambda with filter(): filter() func creates a list of items for which a function returns True.
+#  to filter out even numbers from a list:
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)
+
+# Using lambda with sorted(): to sort a list of tuples based on the second element of each tuple:
+students = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
+sorted_students = sorted(students, key=lambda x: x[1])
+print(sorted_students)
+
+#sort strings by length
+words = ["apple", "banana", "cherry", "date"]
+sorted_words = sorted(words, key=lambda x: len(x))
+print(sorted_words)
