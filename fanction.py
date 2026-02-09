@@ -292,3 +292,49 @@ outer_func()
 # 4. Built-in scope: A variable defined in the built-in scope is a built-in function or constant that is always available in python.
 print(len("Hello")) # len is a built-in function
 print(max(3, 8, 2)) # max is a built-in function
+
+# question 
+#1 what will be the output of the following code?
+x = 2
+def my_func():
+    x = 7
+my_func()
+print(x)
+#2 what will be the output of the following code?
+x = 300
+def myfunc():
+  global x
+  x = 200
+myfunc()
+print(x)
+
+# Python Decorators
+# A decorator is a function that take another function as an argument
+#  and extends the behavior of the latter function without explicitly modifying it.
+# basic decorator: @decorator_name apply above the function
+def changecase(func):
+    def myinner():
+        return func().upper()
+    return myinner
+@changecase
+def greet():
+    return "hello from a function"
+print(greet())
+
+#Multiple decorators: you can apply multiple decorators to a function by stacking them on top of each other
+def add_exclamation(func):
+    def myinner():
+        return func() + "!"
+    return myinner
+@add_exclamation
+def my_func():
+    return "hello from a function"
+
+@add_exclamation
+def other_func():
+    return "welcome to python"
+print(my_func())
+print(other_func())
+
+
+
