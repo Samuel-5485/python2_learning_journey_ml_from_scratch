@@ -253,3 +253,21 @@ def my_func(fname, lname):
     print("Hello", fname, lname)
 person = {"fname": "John", "lname": "Doe"}
 my_func(**person) # unpacking a dictionary as arguments
+
+# Python Scope
+# Scope refers to the region of a program where a variable is defined and can be accessed.
+# In python, there are four types of scope: local, enclosing, global, and built-in.
+# 1. Local Scope: A variable defined inside a function is in the local scope of that function and can only be accessed within that function.
+def my_func():
+    x = 8 # x is a local variable
+    print(x)
+my_func()
+
+# 2. Global Scope: A variable defined outside of any function is in the global scope and can be accessed from anywhere in the code.
+y = 10 # y is a global variable
+def my_func():
+    print(y) # accessing global variable inside a function
+my_func()
+print(y) # accessing global variable outside a function
+
+
