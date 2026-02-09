@@ -336,5 +336,72 @@ def other_func():
 print(my_func())
 print(other_func())
 
+#Arguments in decorated functions: if the original function takes arguments, the inner function in the decorator 
+#must also accept those arguments and pass them to the original function when calling it.
+def repeat(func):
+    def myinner(y):
+        return func(y).upper()
+    return myinner
+@repeat
+def my_func(name):
+    return f"hello, {name} how are you?"
+print(my_func("Alice")) 
 
+#secure the function with *args and **kwargs
+def change_case(func):
+    def myinner(*args, **kwargs):
+        return func(*args, **kwargs).upper()
+    return myinner
+@change_case
+def greet(name):
+    return "Hello " + name
+print(greet("John"))
 
+#Preserving function metadata: function in python has metadata that can be accessed using the __name__ and __doc__ attributes
+def myfunc():
+    return "have a great day!"
+print(myfunc.__name__) # output: myfunc,cuz the function name is myfunc
+print(myfunc.__doc__) # output: None, cuz we didn't add a docstring to the function
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        """This is the wrapper function"""
+        return func(*args, **kwargs)
+    return wrapper
+@my_decorator
+def my_func():
+    """This is the original function"""
+    return "Hello from a function"
+print(my_func.__name__) # output: wrapper, cuz the function name is wrapper
+print(my_func.__doc__) # output: This is the wrapper function, cuz the docstring
+
+#import functools.wraps to preserve the original function name and docstring
+import functools
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper():
+        return func()
+    return wrapper
+@my_decorator
+def my_func():
+    """This is the original function"""
+    return "Hello from a function"
+print(my_func.__name__) # output: my_func, cuz the function name is my_func
+
+#question
+#1. What will be the output of the following code?
+def upper(f):
+  def w():
+    return f().upper()
+  return w
+
+def exclaim(f):
+  def w():
+    return f() + "!"
+  return w
+
+@upper
+@exclaim
+def say():
+  return "hi"
+
+print(say())
