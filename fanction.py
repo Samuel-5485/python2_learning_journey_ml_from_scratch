@@ -448,3 +448,60 @@ print(sorted_students)
 words = ["apple", "banana", "cherry", "date"]
 sorted_words = sorted(words, key=lambda x: len(x))
 print(sorted_words)
+
+#Python recursion
+#it's when a function calls itself.
+
+#A simple recursive function that counts down from 5:
+def countdown(n):
+    if n <= 0:
+        print("Done!")
+    else:
+        print(n)
+        countdown(n - 1)
+countdown(5)
+"""every recursive function must have two parts:
+ 1 Base case - a condition that stops the recursion
+ 2 Recursive case - the function calling itself with a modified argument
+   here without a base case, the function would call itself forever, causing a stack overflow error"""
+def factorial(n):
+    # Base case
+    if n == 0 or n == 1:
+        return 1
+    # Recursive case
+    else:
+        return n * factorial(n - 1)
+print(factorial(5))
+
+"""Fibonacci Sequence
+  is a classic example where each number is the sum of the two preceding ones. 
+The Sequence starts with 0 and 1
+eg; 0, 1, 1, 2, 3, 5, 8, 13,...  here we can use recursion to find a specific number in the sequence:"""
+#Find the 7th number in the fibonacci sequence:
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+print(fibonacci(7))
+
+#Recursion withh lists
+# calculate the sum of all elements in a list:
+def sum_list(numbers):
+    if len(numbers) == 0:
+        return 0
+    else:
+        return numbers[0] + sum_list(numbers[1: ])
+my_list = [1, 3, 4, 7]
+print(sum_list(my_list))
+
+#Find the maximum value in a list:
+def find_max(numbers):
+    if len(numbers) == 1:
+        return numbers[0]
+    else:
+        max_of_rest = find_max(numbers[1: ])
+        return numbers[0] if numbers[0] > max_of_rest else max_of_rest
+my_list = [4, 2, 3, 8]
+print(find_max(my_list))
+    
