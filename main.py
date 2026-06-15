@@ -77,3 +77,7 @@ print(my_var)
 print(str(23))
 print(type(4.23))
 print(isinstance(3, str))
+
+#Escaping Strings
+msg = 'It\'s a sunny day'
+print(msg)
