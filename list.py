@@ -93,3 +93,8 @@ print(numbers)
 programming_languages = ['Rust', 'Java', 'Python', 'C++']
 programming_languages.index('Java')
 print(programming_languages)
+
+#count()
+programming_lang = ['Rust', 'Java', 'Python', 'C++']
+programming_lang.count()
+print(programming_lang)
