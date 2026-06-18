@@ -40,3 +40,17 @@ for index, product in enumerate(products.items()):
 
 for index, product in enumerate(products.items(), 1):
     print(index, product)
+
+#What Are Sets, and How Do They Work?
+""".remove() .discard() .disjoint()"""
+my_set = {1,2,3,4,5}
+your_Set = {2,4,5,6,7}
+print(your_Set.issubset(my_set))
+print(my_set.issuperset(your_Set))
+print(my_set | your_Set) #union
+print(my_set & your_Set) #intersection
+print(my_set - your_Set) #difference
+print(my_set ^ your_Set) #symetric difference
+my_set -= your_Set
+print(my_set)
+print(7 in my_set)
