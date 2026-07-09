@@ -35,3 +35,25 @@ try:
     result = 10 / number
 except (ValueError, ZeroDivisionError) as e:
     print(f'Error occurred: {e}')
+
+'''Raise Statement: The raise statement allows you to trigger an exception manually. 
+This can be usefull for validating input or enforcing certain conditions in your code. '''
+def check_age(age):
+    if age < 0:
+        raise ValueError('Age cannot be negative')
+    return age
+
+try: 
+    check_age(-5)
+except ValueError as e:
+    print(f'Error: {e}') # Error: Age cannot be negative
+
+def check_age(age):
+    if age < 0:
+        raise ValueError('Age cannot be negative')
+    return age
+
+try:
+    check_age(-5)
+except ValueError as e:
+    print(f'Error: {e}') # Error: Age cannot be negative
