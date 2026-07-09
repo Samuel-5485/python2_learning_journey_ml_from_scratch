@@ -22,3 +22,9 @@ except ValueError:
     print('That was not a valid number.')
 except ZeroDivisionError:
     print("Can't divide by zero.")
+
+''' We can also use aliases to refer to the exception object which can provide more information...'''
+try:
+    x = 1 / 0
+except ZeroDivisionError as e:
+    print(f'Error occurred: {e}')
