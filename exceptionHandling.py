@@ -28,3 +28,10 @@ try:
     x = 1 / 0
 except ZeroDivisionError as e:
     print(f'Error occurred: {e}')
+
+'''We can also catch multiple exceptions in a single except clause by specifying the exceptions as a tuple:'''
+try:
+    number = int(input('Enter a number: '))
+    result = 10 / number
+except (ValueError, ZeroDivisionError) as e:
+    print(f'Error occurred: {e}')
